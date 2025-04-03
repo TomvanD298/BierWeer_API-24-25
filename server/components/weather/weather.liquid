@@ -1,0 +1,9 @@
+{% block weather %}
+
+<div class="weather">
+<h2>{{ weather.city }}</h2>
+<p>{{ weather.temperature }}°C</p>
+<img src="{{ weather.icon }}" alt="Weather icon">
+</div>
+
+{% endblock %}

@@ -1,7 +1,33 @@
+body {
+  background-color: #f6bc3e;
+}
+
 header {
-  padding: 1rem;
+  width: 100vw;
+  background-size: auto;
+  background-repeat: no-repeat;
+
+  img {
+    margin-top: -30vh;
+    margin-left: -50vw;
+    width: 200vw;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 footer {
   padding: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  header {
+    img {
+      margin-top: -180vh;
+      margin-left: -50vw;
+      width: 200vw;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
 }

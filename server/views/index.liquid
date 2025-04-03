@@ -2,16 +2,11 @@
 
 {% block content %}
 
-<h1 class="h1">{{ title }}</h1>
+<h1>BierWeer</h1>
 
-<ul class="grid">
-  {% for item in items %}
-    <li>
-      <a href="/plant/{{ item.id }}">
-        {% render 'server/components/card/card.liquid', item: item %}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+{%  render 'server/components/weather/weather.liquid', weather: weather %}
+
+{%  render 'server/components/bier/bier.liquid', bier: bier %}
 
 {% endblock %}
+

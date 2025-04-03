@@ -1,0 +1,17 @@
+.bier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 25vh;
+  }
+
+  img:first-of-type {
+    width: 15vh;
+  }
+
+  img:last-of-type {
+    width: 15vh;
+  }
+}
