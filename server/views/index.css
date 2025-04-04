@@ -1,11 +1,7 @@
-.grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-}
-
 h1 {
   font-family: Bourbon;
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
+  margin-top: -0.6em;
+  width: 100vw;
 }

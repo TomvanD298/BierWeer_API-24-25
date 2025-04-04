@@ -1,16 +1,27 @@
 body {
-  background-color: #f6bc3e;
+  background: linear-gradient(
+    to bottom,
+    #fff9e5,
+    #f9d976,
+    #f6b042,
+    #d98e04,
+    #8b5e00
+  );
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 header {
+  position: relative;
   width: 100vw;
   background-size: auto;
   background-repeat: no-repeat;
+  z-index: 2;
 
   img {
-    margin-top: -30vh;
-    margin-left: -50vw;
-    width: 200vw;
+    margin-top: -10vh;
+    /* margin-left: -25vw; */
+    width: 100vw;
     object-fit: cover;
     object-position: center;
   }
@@ -20,12 +31,81 @@ footer {
   padding: 1rem;
 }
 
+.bier-glas-achtergrond {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: linear-gradient(
+    to bottom,
+    #fff9e5,
+    #f9d976,
+    #f6b042,
+    #d98e04,
+    #8b5e00
+  );
+  z-index: -1;
+}
+
+.bubbel {
+  position: absolute;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: --bubbleAnimation 6s infinite ease-in;
+  opacity: 0;
+}
+
+.bubbel:nth-child(1) {
+  left: 20%;
+  animation-delay: 0s;
+}
+.bubbel:nth-child(2) {
+  left: 40%;
+  animation-delay: 2s;
+  width: 6px;
+  height: 6px;
+}
+.bubbel:nth-child(3) {
+  left: 60%;
+  animation-delay: 1s;
+}
+.bubbel:nth-child(4) {
+  left: 75%;
+  animation-delay: 3s;
+  width: 8px;
+  height: 8px;
+}
+.bubbel:nth-child(5) {
+  left: 50%;
+  animation-delay: 4s;
+}
+
+@keyframes --bubbleAnimation {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
 @media only screen and (min-width: 600px) {
+  body {
+    overflow-y: scroll;
+  }
   header {
     img {
-      margin-top: -180vh;
-      margin-left: -50vw;
-      width: 200vw;
+      margin-top: -105vh;
+      margin-left: -25vw;
+      width: 150vw;
       object-fit: cover;
       object-position: center;
     }
