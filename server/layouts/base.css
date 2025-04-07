@@ -8,7 +8,6 @@ body {
     #8b5e00
   );
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 header {
@@ -19,8 +18,7 @@ header {
   z-index: 2;
 
   img {
-    margin-top: -10vh;
-    /* margin-left: -25vw; */
+    margin-top: clamp(-6em, 20%, -3em);
     width: 100vw;
     object-fit: cover;
     object-position: center;
@@ -94,20 +92,5 @@ footer {
   100% {
     transform: translateY(-100vh);
     opacity: 0;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  body {
-    overflow-y: scroll;
-  }
-  header {
-    img {
-      margin-top: -105vh;
-      margin-left: -25vw;
-      width: 150vw;
-      object-fit: cover;
-      object-position: center;
-    }
   }
 }

@@ -2,16 +2,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100vw;
 
   img {
-    width: 25vh;
+    width: 40%;
+    max-width: 250px;
   }
 
-  img:first-of-type {
-    width: 15vh;
-  }
-
+  img:first-of-type,
   img:last-of-type {
-    width: 15vh;
+    width: 25%;
+    max-width: 250px;
   }
 }
