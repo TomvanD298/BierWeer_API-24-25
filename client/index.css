@@ -15,8 +15,12 @@
   src: url(/font/BourbonGrotesque-Regular.otf) format("opentype");
 }
 
+@font-face {
+  font-family: Thunder;
+  src: url(/font/Thunder-VF.ttf);
+}
+
 body {
   color: black;
   max-width: 1440px;
-  margin: 0 auto;
 }

@@ -7,7 +7,7 @@ body {
     #d98e04,
     #8b5e00
   );
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 header {
@@ -18,9 +18,9 @@ header {
   z-index: 2;
 
   img {
-    margin-top: clamp(-6em, 20%, -3em);
+    margin-top: calc(0em - 25vw);
     width: 100vw;
-    object-fit: cover;
+    object-fit: fill;
     object-position: center;
   }
 }
@@ -54,6 +54,7 @@ footer {
   border-radius: 50%;
   animation: --bubbleAnimation 6s infinite ease-in;
   opacity: 0;
+  z-index: -10;
 }
 
 .bubbel:nth-child(1) {
@@ -93,4 +94,7 @@ footer {
     transform: translateY(-100vh);
     opacity: 0;
   }
+}
+
+@media (min-width: 600px) {
 }

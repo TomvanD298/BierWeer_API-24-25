@@ -4,6 +4,29 @@ import { logger } from '@tinyhttp/logger';
 import { Liquid } from 'liquidjs';
 import sirv from 'sirv';
 
+// const beerData = {
+//   '1': {
+//     id: '1',
+//     name: 'IJwitje',
+//     image: {
+//       src: 'https://i0.wp.com/www.brouwerijhetij.nl/wp-content/uploads/2017/06/240917_BROUWERIJ-HETIJ_Fles-33cl-GlasBlik_nat_IJwit.jpg?w=1000&ssl=1',
+//       alt: 'ijwit',
+//       width: 250,
+//       height: 300,
+//     }
+//   },
+//   '2': {
+//     id: '2',
+//     name: 'Skuumkoppe',
+//     image: {
+//       src: 'https://images.ctfassets.net/aqy2kesc4ox2/1J9hsqkHK5xjER6FAGrMqD/46ca33a0ce019255f4a9a1e685e42901/114SB1048_TEXELS_FLES_3D_2022_Fles_Glas_Blik_combinatie_HR_.png?w=1920',
+//       alt: 'skuuumkoppe',
+//       width: 250,
+//       height: 300,
+//     }
+//   }
+// };
+
 
 const engine = new Liquid({
   extname: '.liquid',
@@ -45,8 +68,20 @@ app
       return res.status(500).send('Error fetching weather data');
     }
   });
-  
 
+  app.get('/beers/:id/', async (req, res) => {
+    const id = req.params.id;
+    const item = beerData[id];
+    if (!item) {
+      return res.status(404).send('Beer not found');
+    }
+    return res.send(renderTemplate('server/views/detail.liquid', {
+      title: `Detail page for ${item.name}`,
+      item: item
+    }));
+  });
+
+  
 const renderTemplate = (template, data) => {
   const templateData = {
     NODE_ENV: process.env.NODE_ENV || 'production',
@@ -55,4 +90,6 @@ const renderTemplate = (template, data) => {
 
   return engine.renderFileSync(template, templateData);
 };
+
+
 

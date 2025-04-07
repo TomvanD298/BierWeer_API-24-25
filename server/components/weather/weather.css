@@ -11,28 +11,31 @@
 
 .weather img {
   position: absolute;
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   right: 0;
-  /* margin-right: -5em; */
 }
 
 h2,
 p {
-  font-family: Bourbon;
+  font-family: Thunder;
   text-align: center;
   color: white;
   width: 100%;
 }
 
 h2 {
-  font-size: 2em;
+  font-size: 4em;
 }
 
 p {
   font-size: 6em;
+  font-weight: 700;
+  letter-spacing: 10px;
 }
 
 p:last-of-type {
-  font-size: 1em;
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: 1px;
 }

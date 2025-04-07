@@ -1,7 +1,9 @@
 h1 {
-  font-family: Bourbon;
-  font-size: 4em;
+  font-family: Thunder;
+  font-size: calc(6rem + 10vw);
+  font-weight: 900;
   text-align: center;
-  margin-top: -0.6em;
-  width: 100vw;
+  margin-top: calc(0.2em - 15vw);
+  width: 100dvw;
+  text-transform: uppercase;
 }
