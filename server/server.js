@@ -3,29 +3,11 @@ import { App } from '@tinyhttp/app';
 import { logger } from '@tinyhttp/logger';
 import { Liquid } from 'liquidjs';
 import sirv from 'sirv';
-
-// const beerData = {
-//   '1': {
-//     id: '1',
-//     name: 'IJwitje',
-//     image: {
-//       src: 'https://i0.wp.com/www.brouwerijhetij.nl/wp-content/uploads/2017/06/240917_BROUWERIJ-HETIJ_Fles-33cl-GlasBlik_nat_IJwit.jpg?w=1000&ssl=1',
-//       alt: 'ijwit',
-//       width: 250,
-//       height: 300,
-//     }
-//   },
-//   '2': {
-//     id: '2',
-//     name: 'Skuumkoppe',
-//     image: {
-//       src: 'https://images.ctfassets.net/aqy2kesc4ox2/1J9hsqkHK5xjER6FAGrMqD/46ca33a0ce019255f4a9a1e685e42901/114SB1048_TEXELS_FLES_3D_2022_Fles_Glas_Blik_combinatie_HR_.png?w=1920',
-//       alt: 'skuuumkoppe',
-//       width: 250,
-//       height: 300,
-//     }
-//   }
-// };
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { getRecommendedBeers } from '../server/components/bier/weatherBeerMatcher.js';
+import { beerColorMap } from '../server/components/bier/weatherBeerMatcher.js';
 
 
 const engine = new Liquid({
@@ -33,7 +15,6 @@ const engine = new Liquid({
 });
 
 const app = new App();
-
 
 app
   .use(logger())
@@ -46,42 +27,98 @@ app
       const city = 'Amsterdam';
       const country = 'NL';
   
-      // const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+      const filename = fileURLToPath(import.meta.url);
+      const dirname = path.dirname(filename);
       const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric&lang=nl`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
       
       const weatherData = await response.json();
-  
+
+      const temp = weatherData.main.temp;
+      const condition = weatherData.weather[0].main.toLowerCase();  
+    
+      // const temp = 25; // 🔥 Fake a hot summer day
+      // const condition = 'clear';
+      
+      const beerDataRaw = fs.readFileSync(path.join(dirname, '..', 'server', 'beer_list.json'));
+      const beerList = JSON.parse(beerDataRaw);
+      
+      function getRandomItems(array, count) {
+        const shuffled = array.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+      }
+      const recommendedBeers = getRecommendedBeers(beerList, temp, condition);
+      const safeList = recommendedBeers.length ? recommendedBeers : beerList;
+      const randomBeers = getRandomItems(recommendedBeers.length ? recommendedBeers : beerList, 3).map(beer => ({
+        ...beer,
+        color: beerColorMap[getBaseStyle(beer["Beer style"])] || '#f0f0f0'
+      }));
+
+      function getBaseStyle(style) {
+        if (!style) return '';
+        return Object.keys(beerColorMap).find(key =>
+          style.toLowerCase().includes(key.toLowerCase())
+        );
+      }
+      
+      
+      // Use these in your template
       return res.send(renderTemplate('server/views/index.liquid', {
         title: 'Home',
+        bier: randomBeers,
         weather: {
           city: weatherData.name,
-          temperature: Math.round(weatherData.main.temp),
+          temperature: Math.round(temp),
           description: weatherData.weather[0].description,
           icon: `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`
         }
       }));
+
     } catch (error) {
       console.error("Error fetching weather data:", error);
       return res.status(500).send('Error fetching weather data');
     }
   });
 
-  app.get('/beers/:id/', async (req, res) => {
-    const id = req.params.id;
-    const item = beerData[id];
-    if (!item) {
-      return res.status(404).send('Beer not found');
-    }
-    return res.send(renderTemplate('server/views/detail.liquid', {
-      title: `Detail page for ${item.name}`,
-      item: item
-    }));
-  });
 
+app.get('/beers/:id/', async (req, res) => {
+  const id = parseInt(req.params.id, 10); // Ensure the ID is a number
+
+  const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+
+  // Read the beer list from JSON file
+  const beerDataRaw = fs.readFileSync(path.join(dirname, '..', 'server', 'beer_list.json'));
+  const beerList = JSON.parse(beerDataRaw);
+
+  // Find the beer with the matching ID
+  const item = beerList.find(beer => beer.id === id);
+
+  if (!item) {
+    return res.status(404).send('Beer not found');
+  }
+  const beer = {
+    id: item.id,
+    name: item.Name,
+    description: item.Description,
+    abv: item.ABV,
+    ibu: item.IBU,
+    rating: item.Rating,
+    style: item["Beer style"],
+    brewer: item.Brewer,
+    image: {
+      src: item.Image,
+      alt: item.Name
+    }
+  };
   
+
+  return res.send(renderTemplate('server/views/detail.liquid', {
+    title: `Detail page for ${beer.name}`,
+    beer
+  }));
+});
+
 const renderTemplate = (template, data) => {
   const templateData = {
     NODE_ENV: process.env.NODE_ENV || 'production',
@@ -90,6 +127,3 @@ const renderTemplate = (template, data) => {
 
   return engine.renderFileSync(template, templateData);
 };
-
-
-

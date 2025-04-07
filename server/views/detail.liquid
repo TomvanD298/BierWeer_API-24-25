@@ -1,7 +1,7 @@
 {% layout "server/layouts/base.liquid" %}
-<h1>BierWeer</h1>
 
 {% block content %}
-<h1 class="h1">{{ item.name }}</h1>
-<img src="{{ item.image.src }}" alt="{{ item.image.alt }}" width="{{ item.image.width }}" height="{{ item.image.height }}" />
+
+{% render 'server/components/bier_details/bier_details.liquid', beer: beer %}
+
 {% endblock %}

@@ -7,7 +7,7 @@ body {
     #d98e04,
     #8b5e00
   );
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
 }
 
 header {

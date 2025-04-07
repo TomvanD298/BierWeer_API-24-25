@@ -1,0 +1,12 @@
+{% block bierDetails %}
+  <div class="beer-details">
+    <h1>{{ beer.name }}</h1>
+    <img src="{{ beer.image.src }}" alt="{{ beer.image.alt }}" style="max-width: 300px;">
+    <p><strong>Description:</strong> {{ beer.description }}</p>
+    <p><strong>ABV:</strong> {{ beer.abv }}</p>
+    <p><strong>IBU:</strong> {{ beer.ibu }}</p>
+    <p><strong>Rating:</strong> {{ beer.rating }}⭐️</p>
+    <p><strong>Style:</strong> {{ beer.style }}</p>
+    <p><strong>Brewer:</strong> {{ beer.brewer }}</p>
+  </div>
+{% endblock %}

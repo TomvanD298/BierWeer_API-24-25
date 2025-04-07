@@ -1,24 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tempRaw = document.body.dataset.temperature;
-    const bierGlas = document.querySelector('.bierGlas');
+  const tempRaw = document.body.dataset.temperature;
+  const bierGlas = document.querySelector('.bierGlas');
 
-  
-    const temp = parseInt(tempRaw);
-    // const temp = 30;
+  const temp = parseInt(tempRaw) * 2;
+  console.log(temp);
 
-    console.log('Temperature:', temp);
+  const bubbleRate = Math.min(temp, 50); // Bubbles per 10 seconds, for example
 
-    const bubbleCount = Math.min(temp, 50); // Safety cap
-    for (let i = 0; i < bubbleCount; i++) {
-      const bubbel = document.createElement('div');
-      bubbel.classList.add('bubbel');
+  // Create a bubble function
+  function createBubble() {
+    const bubbel = document.createElement('div');
+    bubbel.classList.add('bubbel');
 
-      bubbel.style.left = `${Math.random() * 90}%`;
-      bubbel.style.animationDelay = `${Math.random() * 5}s`;
-      const size = 6 + Math.random() * 6;
-      bubbel.style.width = `${size}px`;
-      bubbel.style.height = `${size}px`;
+    bubbel.style.left = `${Math.random() * 90}%`;
+    bubbel.style.animationDelay = `0s`;
+    const size = 6 + Math.random() * 6;
+    bubbel.style.width = `${size}px`;
+    bubbel.style.height = `${size}px`;
+    bubbel.style.animationDuration = `${4 + Math.random() * 3}s`;
 
-      bierGlas.appendChild(bubbel);
+    bierGlas.appendChild(bubbel);
+
+    // Remove bubble after animation ends
+    setTimeout(() => {
+      bubbel.remove();
+    }, 7000);
+  }
+
+  // Interval to keep generating bubbles based on temperature
+  setInterval(() => {
+    for (let i = 0; i < bubbleRate / 10; i++) {
+      createBubble();
     }
-  });
+  }, 1000); // Every second
+});

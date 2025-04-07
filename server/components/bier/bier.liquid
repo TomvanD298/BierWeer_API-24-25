@@ -1,7 +1,123 @@
 {% block bier %}
 <div class="bier">
-<img src="/images/pils.png" alt="aangeraden biertje 1">
-<img src="/images/pils.png" alt="aangeraden biertje 2">
-<img src="/images/pils.png" alt="aangeraden biertje 3">
+<ul class="beer-list">
+  {% for beer in bier %}
+    <li>
+      <a href="/beers/{{ beer.id }}/" >
+
+      <div class="svg-glass-wrap">
+       
+        <svg viewBox="0 0 160 250" class="beer-glass-svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <linearGradient id="witbierGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f9f4d2"/>
+              <stop offset="100%" stop-color="#f4e8b2"/>
+            </linearGradient>
+          
+            <linearGradient id="ipaGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fbe59f"/>
+              <stop offset="100%" stop-color="#f9c74f"/>
+            </linearGradient>
+          
+            <linearGradient id="blondGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff0aa"/>
+              <stop offset="100%" stop-color="#f8d478"/>
+            </linearGradient>
+          
+            <linearGradient id="paleAleGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffe6a3"/>
+              <stop offset="100%" stop-color="#f5b041"/>
+            </linearGradient>
+          
+            <linearGradient id="tripelGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff3b0"/>
+              <stop offset="100%" stop-color="#f7da8b"/>
+            </linearGradient>
+          
+            <linearGradient id="dubbelGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#995437"/>
+              <stop offset="100%" stop-color="#7a3e2d"/>
+            </linearGradient>
+          
+            <linearGradient id="quadrupelGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#5a362b"/>
+              <stop offset="100%" stop-color="#4e2b1f"/>
+            </linearGradient>
+          
+            <linearGradient id="stoutGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3b2b28"/>
+              <stop offset="100%" stop-color="#2b1b17"/>
+            </linearGradient>
+          
+            <linearGradient id="lagerGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff266"/>
+              <stop offset="100%" stop-color="#f1c40f"/>
+            </linearGradient>
+          
+            <linearGradient id="pilsnerGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fdf4aa"/>
+              <stop offset="100%" stop-color="#f9e79f"/>
+            </linearGradient>
+          
+            <linearGradient id="bockGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ba6f3c"/>
+              <stop offset="100%" stop-color="#a65e2e"/>
+            </linearGradient>
+          
+            <linearGradient id="saisonGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fddc73"/>
+              <stop offset="100%" stop-color="#f6b93b"/>
+            </linearGradient>
+          
+            <linearGradient id="fruitedGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fbc6b8"/>
+              <stop offset="100%" stop-color="#f1948a"/>
+            </linearGradient>
+          
+            <linearGradient id="sourGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fa7268"/>
+              <stop offset="100%" stop-color="#e74c3c"/>
+            </linearGradient>
+          
+            <linearGradient id="otherGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#eaecec"/>
+              <stop offset="100%" stop-color="#d5dbdb"/>
+            </linearGradient>
+          </defs>
+        <!-- GLASS OUTLINE -->
+        <path d="M40,10 
+                 Q15,60 40,230 
+                 Q45,240 80,240 
+                 Q115,240 120,230 
+                 Q145,60 120,10 Z"
+              fill="#ffffff" stroke="#2b1b1b" stroke-width="6" />
+      
+        <!-- BEER FILL (matches glass shape but inset) -->
+        <path d="M48,35 
+                 Q30,70 48,225 
+                 Q54,232 80,232 
+                 Q106,232 112,225 
+                 Q130,70 112,35 Z"
+                 fill="{{ beer.color }}" />
+      
+        <!-- FOAM on top -->
+        <path d="M48,35 
+                 Q80,15 112,35 
+                 A32,12 0 1 1 48,35 Z"
+              fill="#f9f9f9" stroke="#fff" stroke-width="1.2"/>
+      </svg>
+      
+        <!-- Logo overlay -->
+        <img src="{{ beer.Image }}" alt="{{ beer.Name }}" class="glass-logo">
+      
+        <!-- Name below -->
+        <div class="beer-name">{{ beer.Name }}</div>
+      </div>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+
 </div>
+
 {% endblock %}

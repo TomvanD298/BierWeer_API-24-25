@@ -1,0 +1,16 @@
+.beer-details p {
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: start;
+
+  strong {
+    font-weight: 700;
+    color: black;
+  }
+}
+
+.beer-details img {
+  width: 100px;
+  height: 100px;
+}
