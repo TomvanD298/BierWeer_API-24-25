@@ -10,6 +10,7 @@
 @import "../server/components/weather/weather.css";
 @import "../server/components/bier/bier.css";
 @import "../server/components/bier_details/bier_details.css";
+@import "../server/components/city/city.css";
 
 @font-face {
   font-family: Bourbon;

@@ -4,8 +4,9 @@
 
 <h1>BierWeer</h1>
 
-{%  render 'server/components/weather/weather.liquid', weather: weather %}
+{% render 'server/components/weather/weather.liquid', weather: weather %}
 {% render 'server/components/bier/bier.liquid', bier: bier %}
+{% render 'server/components/city/city.liquid', city: city %}
 
 {% endblock %}
 

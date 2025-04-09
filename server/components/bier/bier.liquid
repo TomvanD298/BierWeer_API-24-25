@@ -7,7 +7,7 @@
 
       <div class="svg-glass-wrap">
        
-        <svg viewBox="0 0 160 250" class="beer-glass-svg" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 160 300" class="beer-glass-svg" xmlns="http://www.w3.org/2000/svg">
         <defs>
             <linearGradient id="witbierGradient" x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stop-color="#f9f4d2"/>
@@ -84,27 +84,34 @@
               <stop offset="100%" stop-color="#d5dbdb"/>
             </linearGradient>
           </defs>
-        <!-- GLASS OUTLINE -->
-        <path d="M40,10 
-                 Q15,60 40,230 
-                 Q45,240 80,240 
-                 Q115,240 120,230 
-                 Q145,60 120,10 Z"
-              fill="#ffffff" stroke="#2b1b1b" stroke-width="6" />
-      
-        <!-- BEER FILL (matches glass shape but inset) -->
-        <path d="M48,35 
-                 Q30,70 48,225 
-                 Q54,232 80,232 
-                 Q106,232 112,225 
-                 Q130,70 112,35 Z"
-                 fill="{{ beer.color }}" />
-      
-        <!-- FOAM on top -->
-        <path d="M48,35 
-                 Q80,15 112,35 
-                 A32,12 0 1 1 48,35 Z"
-              fill="#f9f9f9" stroke="#fff" stroke-width="1.2"/>
+     <!-- FIll -->
+     <path d="M40,30 
+         Q30,100 50,250 
+         L50,270 
+         L110,270 
+         L110,250 
+         Q130,100 120,30 
+         Z"
+      fill="{{ beer.color }}" />
+
+<!-- FOAM -->
+<path d="M40,30 
+         Q80,0 120,30 
+         C122,35 122,42 120,46 
+         C105,50 55,50 40,46 
+         C38,42 38,35 40,30 
+         Z"
+      fill="#f9f9f9" stroke="#ffffff" stroke-width="1" />
+
+<!-- OUTLINE -->
+<path d="M40,30 
+         Q30,100 50,250 
+         L50,270 
+         L110,270 
+         L110,250 
+         Q130,100 120,30 
+         Q80,0 40,30 Z"
+      fill="none" stroke="#2b1b1b" stroke-width="4" />
       </svg>
       
         <!-- Logo overlay -->

@@ -24,7 +24,7 @@ app
   app.get('/', async (req, res) => {
     try {
       const apiKey = process.env.OpenWeatherKey;
-      const city = 'Amsterdam';
+      const city = req.query.city || 'Amsterdam';
       const country = 'NL';
   
       const filename = fileURLToPath(import.meta.url);
@@ -67,7 +67,7 @@ app
         title: 'Home',
         bier: randomBeers,
         weather: {
-          city: weatherData.name,
+          city,
           temperature: Math.round(temp),
           description: weatherData.weather[0].description,
           icon: `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png`

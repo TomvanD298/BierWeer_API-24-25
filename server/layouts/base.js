@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const bierGlas = document.querySelector('.bierGlas');
 
   const temp = parseInt(tempRaw) * 2;
-  console.log(temp);
 
   const bubbleRate = Math.min(temp, 50); // Bubbles per 10 seconds, for example
 

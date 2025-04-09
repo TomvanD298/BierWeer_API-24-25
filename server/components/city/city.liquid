@@ -1,0 +1,9 @@
+{% block city %}
+
+<form method="GET" action="/" class="city-form">
+  <label for="city">Zoek op stad:</label>
+  <input type="text" id="city" name="city" placeholder="Bvb: Amterdam" value="{{ weather.city }}" required>
+  <button type="submit">Zoek bier 🍺</button>
+</form>
+
+{% endblock %}

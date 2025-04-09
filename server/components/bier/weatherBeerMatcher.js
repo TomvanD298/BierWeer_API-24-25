@@ -1,21 +1,26 @@
 export function getRecommendedBeers(beerList, temp, condition) {
   // Styles that always work no matter the weather
-  const alwaysGoodStyles = ['Lager', 'Pilsner', "Saison"];
+  const alwaysGoodStyles = ['Lager', 'Pilsner', 'Saison'];
 
-  // Weather-based styles
   let preferredStyles = [];
-
-  if (temp >= 18) {
-    preferredStyles = ['Witbier', 'IPA', 'Blond, Wheat Beer, Fruited'];
-  } else if (temp < 10) {
-    preferredStyles = ['Stout', 'Dubbel', 'Quadrupel'];
+  
+  // Temperatuurgebaseerde keuzes
+  if (temp >= 16) {
+    preferredStyles = ['Witbier', 'Weizen', 'Blond', 'IPA', 'Fruited'];
+  } else if (temp >= 10 && temp < 16) {
+    preferredStyles = ['Pale Ale', 'Tripel', 'Saison'];
   } else {
-    preferredStyles = ['Pale Ale', 'Tripel'];
+    preferredStyles = ['Dubbel', 'Quadrupel', 'Stout'];
   }
-
-  if (condition.includes('rain')) {
+  
+  // Extra voorkeur bij koud & regenachtig weer
+  if (temp < 5 && condition.includes('rain')) {
     preferredStyles.push('Dubbel', 'Tripel', 'Quadrupel', 'Stout');
   }
+  
+  // Eventueel combineren met altijd-goed stijlen
+  const allRecommendedStyles = [...new Set([...alwaysGoodStyles, ...preferredStyles])];
+  
 
   return beerList.filter((beer) => {
     const style = (beer["Beer style"] || '').toLowerCase();
