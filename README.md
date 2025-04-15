@@ -17,6 +17,7 @@ Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.
 
 ### Content API:
 - https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide
+- https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
 
 
 ### Niet gelukt: 
