@@ -8,11 +8,16 @@
 ## Idee
 Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.
 
-## API
+### concept
 
+
+## API
 ### Content API:
 - https://openweathermap.org/
 - Eigen JSON file met allemaal bier erin (omdat er geen goede DB is...)
+  Ik heb hier meerdere API's voor geraadpleegd. UNTAPD was veruit de beste(gratis) API, alleen zat deze achter slot en grendel voor bedrijven.<br>
+  Ook heb ik andere gezocht, maar hier moet je na 100 calls voor betalen.<br>
+  Hierdoor heb ik gekozen om zelf maar een JSON te maken met 20 biertjes.
 
 
 ### Content API:
