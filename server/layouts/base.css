@@ -42,59 +42,15 @@ footer {
     #d98e04,
     #8b5e00
   );
-  z-index: -1;
+  z-index: -2;
 }
 
-.bubbel {
+canvas {
   position: absolute;
-  bottom: 0;
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 50%;
-  animation: --bubbleAnimation 6s infinite ease-in;
-  opacity: 0;
-  z-index: -10;
-}
-
-.bubbel:nth-child(1) {
-  left: 20%;
-  animation-delay: 0s;
-}
-.bubbel:nth-child(2) {
-  left: 40%;
-  animation-delay: 2s;
-  width: 6px;
-  height: 6px;
-}
-.bubbel:nth-child(3) {
-  left: 60%;
-  animation-delay: 1s;
-}
-.bubbel:nth-child(4) {
-  left: 75%;
-  animation-delay: 3s;
-  width: 8px;
-  height: 8px;
-}
-.bubbel:nth-child(5) {
-  left: 50%;
-  animation-delay: 4s;
-}
-
-@keyframes --bubbleAnimation {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-}
-
-@media (min-width: 600px) {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  display: block;
 }

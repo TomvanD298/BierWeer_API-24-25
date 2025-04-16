@@ -1,35 +1,92 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const tempRaw = document.body.dataset.temperature;
-  const bierGlas = document.querySelector('.bierGlas');
+  const canvas = document.getElementById('beerCanvas');
+  const ctx = canvas.getContext('2d');
 
-  const temp = parseInt(tempRaw) * 2;
-
-  const bubbleRate = Math.min(temp, 50); // Bubbles per 10 seconds, for example
-
-  // Create a bubble function
-  function createBubble() {
-    const bubbel = document.createElement('div');
-    bubbel.classList.add('bubbel');
-
-    bubbel.style.left = `${Math.random() * 90}%`;
-    bubbel.style.animationDelay = `0s`;
-    const size = 6 + Math.random() * 6;
-    bubbel.style.width = `${size}px`;
-    bubbel.style.height = `${size}px`;
-    bubbel.style.animationDuration = `${4 + Math.random() * 3}s`;
-
-    bierGlas.appendChild(bubbel);
-
-    // Remove bubble after animation ends
-    setTimeout(() => {
-      bubbel.remove();
-    }, 7000);
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
 
-  // Interval to keep generating bubbles based on temperature
-  setInterval(() => {
-    for (let i = 0; i < bubbleRate / 10; i++) {
-      createBubble();
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const tempRaw = document.body.dataset.temperature;
+  const temp = parseInt(tempRaw) * 2;
+  const bubbleRate = Math.min(temp, 50); // Bubbles per 10 seconds
+  const bubbles = [];
+  const bubbleLifespan = 3600; // 5 seconds per bubble
+
+  class Bubble {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height + Math.random() * 50;
+      this.radius = 3 + Math.random() * 6;
+      this.speed = 1 + Math.random() * 2;
+      this.alpha = 1;
+      this.age = 0; // track how long the bubble's been alive
     }
-  }, 1000); // Every second
+  
+    update(deltaTime) {
+      this.y -= this.speed;
+      this.age += deltaTime;
+      this.alpha = 1 - this.age / bubbleLifespan;
+    }
+  
+    draw(ctx) {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+      ctx.fill();
+    }
+  
+    isAlive() {
+      return this.age < bubbleLifespan;
+    }
+  }
+
+  function addBubbles() {
+    for (let i = 0; i < bubbleRate / 10; i++) {
+      bubbles.push(new Bubble());
+    }
+  }
+
+  let lastTimestamp = 0;
+
+  function animate(timestamp) {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const deltaTime = timestamp - lastTimestamp;
+    lastTimestamp = timestamp;
+  
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+    bubbles.forEach((bubble) => {
+      bubble.update(deltaTime);
+      bubble.draw(ctx);
+    });
+  
+    for (let i = bubbles.length - 1; i >= 0; i--) {
+      if (!bubbles[i].isAlive()) {
+        bubbles.splice(i, 1);
+      }
+    }
+  
+    requestAnimationFrame(animate);
+  }
+
+  setInterval(addBubbles, 1000);
+  animate();
 });
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    toggleFullScreen();
+  }
+});
+
+function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}
