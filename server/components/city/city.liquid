@@ -1,16 +1,15 @@
 {% block city %}
 
 <section class="city">
-  <h2>Zoek op stad:</h2>
-  <div>
-    <p id="status"></p>
-    {% comment %} <a id="map-link" target="_blank"></a> {% endcomment %}
-    <button id="find-me">Mijn locatie</button><br />
-  </div>
+  <h2>Zoek op stad</h2>
   <form method="GET" action="/" class="city-form">
     <label for="city"></label>
-    <input type="text" id="city" name="city" placeholder="Bvb: Amterdam" value="{{ weather.city }}" required>
-    <button type="submit">Zoek bier 🍺</button>
+    <div>
+      <p id="status"></p>
+      <button id="find-me">📍</button>
+    </div>
+    <input type="text" id="city" name="city" placeholder="Bv: Amsterdam" value="{{ weather.city }}" required>
+    <button type="submit">🍺</button>
   </form>
 </section>
 

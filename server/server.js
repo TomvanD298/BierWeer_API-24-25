@@ -39,8 +39,8 @@ app
       const temp = weatherData.main.temp;
       const condition = weatherData.weather[0].main.toLowerCase();  
     
-      // const temp = 25; // 🔥 Fake a hot summer day
-      // const condition = 'clear';
+      // const temp = 1; // 🔥 Fake a hot summer day
+      // const condition = 'moderate rain';
       
       const beerDataRaw = fs.readFileSync(path.join(dirname, '..', 'server', 'beer_list.json'));
       const beerList = JSON.parse(beerDataRaw);

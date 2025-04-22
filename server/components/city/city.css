@@ -2,20 +2,14 @@
   width: 100dvw;
 }
 
+.city h2 {
+  width: 100%;
+}
+
 .city-form {
   margin: 1rem 0;
   text-align: center;
-}
-
-.city-form label {
-  display: block;
-  font-family: Thunder;
-  font-size: 1.5rem;
-  font-weight: 300;
-  text-align: start;
-  color: #fff;
-  width: 90dvw;
-  margin: auto auto 0.2em auto;
+  position: relative;
 }
 
 .city-form input {
@@ -27,27 +21,38 @@
 }
 
 .city-form button {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  margin-top: 1em;
+  position: absolute;
+  right: 1em;
+  top: 0.1em;
+  font-size: 2rem;
   cursor: pointer;
   border-radius: 10px;
+  border: none;
+  padding: 0;
+  z-index: 3;
+  background-color: transparent;
 }
 
 .city h2 {
   color: white;
-  font-size: 2em;
-  margin: 0.5rem 0 0 1rem;
+  font-family: Thunder;
+  font-size: 3em;
+  width: 100dvw;
+  text-align: center;
+  margin-top: 1em;
 }
 
 #find-me {
-  color: cornflowerblue;
-  background-color: rgba(0, 0, 0, 0.7);
+  font-size: 2rem;
+  cursor: pointer;
   border-radius: 10px;
   border: none;
-  text-decoration: none;
-  margin: 0.5rem 0 0 1rem;
-  padding: 0.5rem;
+  padding: 0;
+  margin: 0;
+  z-index: 3;
+  right: 2.5em;
+  top: 0.1em;
+  background-color: transparent;
 }
 
 #status {
@@ -57,15 +62,10 @@
 }
 
 @media only screen and (min-width: 600px) {
-  .city h2 {
-    margin: 0.5rem 0 0 5vw;
+  .city-form button {
+    right: 2.5em;
   }
-
   #find-me {
-    margin: 0.5rem 0 0 5vw;
-  }
-
-  #status {
-    margin: 0.5rem 0 0 5vw;
+    right: 4em;
   }
 }

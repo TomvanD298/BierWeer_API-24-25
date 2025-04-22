@@ -1,5 +1,5 @@
 function geoFindMe() {
-    const status = document.querySelector("#status");
+    // const status = document.querySelector("#status");
     const cityInput = document.querySelector("#city");
     const findMeButton = document.querySelector("#find-me");
   
@@ -7,14 +7,13 @@ function geoFindMe() {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
   
-      status.textContent = "Fetching city name...";
+      // status.textContent = "Fetching city name...";
   
       fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
         .then(response => response.json())
         .then(data => {
           const city = data.address.city || data.address.town || data.address.village || data.address.hamlet || "Unknown location";
   
-          status.textContent = `Locatie: ${city}`;
           cityInput.value = city; // <-- 👈 Fills the input field
           findMeButton.style.display = "none"; // <-- 👈 Hides the button
         })

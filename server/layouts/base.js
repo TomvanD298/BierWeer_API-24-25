@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const temp = parseInt(tempRaw) * 2;
   const bubbleRate = Math.min(temp, 50); // Bubbles per 10 seconds
   const bubbles = [];
-  const bubbleLifespan = 3600; // 5 seconds per bubble
+  const bubbleLifespan = 10000; // 5 seconds per bubble
 
   class Bubble {
     constructor() {
