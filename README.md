@@ -6,10 +6,14 @@
 
 
 ## Idee
-Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.
+Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.<br>
+
 
 ### concept
-
+<img width="200" alt="Scherm met Haarlem" src="https://github.com/user-attachments/assets/0e68f98e-603c-439d-bc85-5fbd33b9a226" />
+<img width="200" alt="Scherm met Amsterdam" src="https://github.com/user-attachments/assets/81384a49-275e-43ae-9fe4-94d056664c85" />
+<img width="200" alt="Scherm met Landgraaf" src="https://github.com/user-attachments/assets/10f0ec53-d397-422d-91ff-11339bc23307" />
+<img width="200" alt="Detailpagina van IJwit" src="https://github.com/user-attachments/assets/d96a5ef4-e95e-4f82-a0fe-d1b7bd12e1d3" />
 
 ## API
 ### Content API:
