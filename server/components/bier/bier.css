@@ -53,7 +53,7 @@ li:nth-of-type(2) {
   border-radius: 6px;
   z-index: 2;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  /* mix-blend-mode: multiply; */
+  mix-blend-mode: multiply;
 }
 
 .beer-name {

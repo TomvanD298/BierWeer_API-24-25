@@ -26,7 +26,7 @@ app
   app.get('/', async (req, res) => {
     try {
       const apiKey = process.env.OpenWeatherKey;
-      const city = req.query.city || 'Amsterdam';
+      const city = req.query.city || 'Haarlem'; //default city
       const country = 'NL';
   
       const filename = fileURLToPath(import.meta.url);
