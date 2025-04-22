@@ -20,9 +20,17 @@ Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.
   Hierdoor heb ik gekozen om zelf maar een JSON te maken met 20 biertjes.
 
 
-### Content API:
-- https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide
-- https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API
+### Web API:
+- https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API/Guide<br>
+  Deze API is wel grappig, maar was maar een paar regels aan code, dus vond het niet genoeg.
+- https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API<br>
+  Ik heb de Canvas API gebruikt om de bubbeltjes op de achtergrond te maken. Dit deed ik eerst dus los met JS, maar heb dit dus vervangen door JS met Canvas.
+- https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API<br>
+  DMV deze kan ik de huidige locatie ophalen van de gebruiker. Hierdoor kan ik de stap overslaan waarin de gebruiker zelf de stad moet invullen. <br>
+  Het enige nadeel is dat je van Apple permission nodig hebt om het te doen, dus je kan dit niet automatisch doen.<br>
+  Ik kreeg eerst coördinaten terug, deze heb ik nog omgezet naar de locatie.
+
+
 
 
 ### Niet gelukt: 
