@@ -1,9 +1,18 @@
 {% block city %}
 
-<form method="GET" action="/" class="city-form">
-  <label for="city">Zoek op stad:</label>
-  <input type="text" id="city" name="city" placeholder="Bvb: Amterdam" value="{{ weather.city }}" required>
-  <button type="submit">Zoek bier 🍺</button>
-</form>
+<section class="city">
+  <h2>Zoek op stad:</h2>
+  <div>
+    <p id="status"></p>
+    {% comment %} <a id="map-link" target="_blank"></a> {% endcomment %}
+    <button id="find-me">Mijn locatie</button><br />
+  </div>
+  <form method="GET" action="/" class="city-form">
+    <label for="city"></label>
+    <input type="text" id="city" name="city" placeholder="Bvb: Amterdam" value="{{ weather.city }}" required>
+    <button type="submit">Zoek bier 🍺</button>
+  </form>
+</section>
+
 
 {% endblock %}

@@ -1,3 +1,7 @@
+.city {
+  width: 100dvw;
+}
+
 .city-form {
   margin: 1rem 0;
   text-align: center;
@@ -25,8 +29,43 @@
 .city-form button {
   padding: 1rem 2rem;
   font-size: 1rem;
-  margin-left: 0.5rem;
   margin-top: 1em;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.city h2 {
+  color: white;
+  font-size: 2em;
+  margin: 0.5rem 0 0 1rem;
+}
+
+#find-me {
+  color: cornflowerblue;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  margin: 0.5rem 0 0 1rem;
+  padding: 0.5rem;
+}
+
+#status {
+  color: white;
+  font-size: 1em;
+  margin: 0.5rem 0 0 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .city h2 {
+    margin: 0.5rem 0 0 5vw;
+  }
+
+  #find-me {
+    margin: 0.5rem 0 0 5vw;
+  }
+
+  #status {
+    margin: 0.5rem 0 0 5vw;
+  }
 }
