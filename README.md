@@ -12,7 +12,7 @@ Een app die bier aanbeveelt op basis je locatie en het weer.<br>
 <img width="200" alt="Scherm met Haarlem" src="https://github.com/user-attachments/assets/4df80324-8c75-41df-b76f-ade6e5fc1ff0" />
 <img width="200" alt="Scherm met Amsterdam" src="https://github.com/user-attachments/assets/83d32b68-fa1d-45f0-8246-67e1136c522d" />
 <img width="200" alt="Scherm met Landgraaf" src="https://github.com/user-attachments/assets/d0fc288f-a897-44a1-8f8c-aaf0821cc809" />
-<img width="200" alt="Detailpagina van IJwit" src="https://github.com/user-attachments/assets/d96a5ef4-e95e-4f82-a0fe-d1b7bd12e1d3" />
+<img width="200" alt="Detailpagina van Triple Karmaliet" src="https://github.com/user-attachments/assets/c2b18187-94b6-42b8-8808-7f3a9a9d86ed" />
 
 
 ## Features
