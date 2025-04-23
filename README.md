@@ -6,7 +6,7 @@
 
 
 ## Idee
-Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.<br>
+Een app die bier aanbeveelt op basis je locatie en het weer.<br>
 
 ### Screenshots
 <img width="200" alt="Scherm met Haarlem" src="https://github.com/user-attachments/assets/4df80324-8c75-41df-b76f-ade6e5fc1ff0" />
@@ -22,7 +22,7 @@ Het weer wordt opgehaald dmv de OpenWeather API. Ik heb Hardcoded eringezet dat 
 
 
 ### Biertjes
-De biertjes worden dus opgehaald uit de JSON file. Deze hebben een aantal eigenschappen, zoals omschrijving, plaatje, brouwerij, bierstijl etc..<br>
+De biertjes worden opgehaald uit de JSON file(omdat het niet was gelukt om een goede gratis API te vinden). Deze hebben een aantal eigenschappen, zoals omschrijving, plaatje, brouwerij, bierstijl etc..<br>
 De biertjes op de homepage worden weergegeven op basis van het weer. Met de logica dat de temperatuur invloefd heeft op de bierstijl. Dus als het warm is wordt er een wit biertje aanbevolen
 en als koud is en regend een stout.<br>
 <img width="400" alt="Scherm­afbeelding 2025-04-23 om 09 49 55" src="https://github.com/user-attachments/assets/c3e6e270-c04c-44ad-b229-911d37ac4277" /><br>
@@ -46,7 +46,6 @@ Is het Bierweer of is het tijd voor weerBier? wie weet? Als je op de tekst klikt
 
 
 
-
 ## API
 ### Content API
 - https://openweathermap.org/
@@ -65,11 +64,28 @@ Is het Bierweer of is het tijd voor weerBier? wie weet? Als je op de tekst klikt
   Het enige nadeel is dat je van Apple permission nodig hebt om het te doen, dus je kan dit niet automatisch doen.<br>
   Ik kreeg eerst coördinaten terug, deze heb ik nog omgezet naar de locatie.
 
-### Niet gelukt
+
+
+## Proces
+### API
+Ik heb al eerder gewerkt met API's, dus dit was niet heel nieuw voor mij. Ik ben begonnen met de OpenWeatherAPI, deze was erg goed gedocumenteerd en makkelijk te gebruiken.<br>
+Voordat ik begon met de API in mijn code, ben ik eerst de endpoints gaan testen in Postman. Dit vind ik erg handig en kan je van te voren uitzoeken hoe een API werkt zonder dat je al werkende code moet hebben.
+
+Ik baal wel een beetje van de Bier api's. Hier ben ik namelijk een goede dag mee bezig geweest met 0 resultaat. Ik heb verschillende bedrijven een mailtje gestuurd met de vraag of ik dit als schoolproject mag gebruiken. Geen van hen heeft gereageerd..<br>
+Hierdoor heb ik maar samen met de docent besloten om er een JSON file van te maken met circa 20 biertjes van verschillende soorten.<br>
+Ik heb de app zo gebouwd, dat mocht ik nog wel een reactie krijgen van die bedrijven, dat ik maar een paar dingetjes hoef aan te passen en dat het al meteen werkt.
+
+
+### Liquid en TinyHTTP
+Liquid en TinyHTTP was nieuw voor mij. Ik heb tijdens mijn stage wel al een beetje met Vue gewerkt. Dit is ook een framework, dus ik wist al een beetje hoe ik mij hier in moest navigeren.<br>
+Ik vond het in het begin toch nog even wennen omdat ik niet echt eerder met componenten heb gewerkt, maar ik vind dit achteraf toch wel heel erg fijn.
+
+### Helaas niet gelukt
 - Gyroscope; Apple be like, fuck you<br>
   <img width="500" alt="Scherm­afbeelding 2025-04-15 om 11 04 12" src="https://github.com/user-attachments/assets/0aa1ca8c-8118-456d-9e6a-2389a25b633a" />
 - UNTAPD: heb 3 mailtjes gestuurd of ik toegang mocht tot de API, nooit reactie gehad.
-
+- Rapid API: Hier waren wel een aantal bier API's, maar hier had je maar 100 calls, en als je er meer wilde moet je betalen...
+- Had nog een aantal API's gevonden, maar hier was geen documentatie van of niet meer onderhouden sinds 2012..
 
 
 
