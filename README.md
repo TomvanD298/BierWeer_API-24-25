@@ -8,13 +8,11 @@
 ## Idee
 Een app die bier aanbeveelt op basis van het weer en de locatie waar je bent.<br>
 
-### Concept
-<img width="200" alt="Scherm met Haarlem" src="https://github.com/user-attachments/assets/0e68f98e-603c-439d-bc85-5fbd33b9a226" />
-<img width="200" alt="Scherm met Amsterdam" src="https://github.com/user-attachments/assets/81384a49-275e-43ae-9fe4-94d056664c85" />
-<img width="200" alt="Scherm met Landgraaf" src="https://github.com/user-attachments/assets/10f0ec53-d397-422d-91ff-11339bc23307" />
+### Screenshots
+<img width="200" alt="Scherm met Haarlem" src="https://github.com/user-attachments/assets/4df80324-8c75-41df-b76f-ade6e5fc1ff0" />
+<img width="200" alt="Scherm met Amsterdam" src="https://github.com/user-attachments/assets/83d32b68-fa1d-45f0-8246-67e1136c522d" />
+<img width="200" alt="Scherm met Landgraaf" src="https://github.com/user-attachments/assets/d0fc288f-a897-44a1-8f8c-aaf0821cc809" />
 <img width="200" alt="Detailpagina van IJwit" src="https://github.com/user-attachments/assets/d96a5ef4-e95e-4f82-a0fe-d1b7bd12e1d3" />
-
-
 
 
 ## Features
@@ -40,7 +38,8 @@ De Bubbels heb ik gemaakt met de Canvas API. Deze worden ook gerenderd op basis 
 ### Stad
 Je kan zoeken op de stad waar je het weer van wilt weten. Dmv het rode pinnetje kan je de huidige locatie ophalen van de gebruiker. Deze wordt meteen in het input veld gedaan zodat dit weer een stap scheelt.<br>
 <img width="250" alt="Scherm­afbeelding 2025-04-23 om 09 57 17" src="https://github.com/user-attachments/assets/14fcaef0-d4e7-415f-b807-791b1d878655" /><br>
-Bij het versturen 
+Bij het versturen wordt de stad meegegeven in de API call, waardoor je de temperatuur van die stad terug krijgt.<br>
+Het enige wat ik nog niet heb kunnen toepassen is een soort autocomplete, dus als je de stad verkeerd schrijft, werkt de app niet meer.
 
 ### Logo
 Is het Bierweer of is het tijd voor weerBier? wie weet? Als je op de tekst klikt kan je er achter komen.
