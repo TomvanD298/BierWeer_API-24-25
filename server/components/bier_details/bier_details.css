@@ -14,12 +14,14 @@
 }
 
 .beer-details a {
-  text-decoration: none;
   color: black;
   margin-left: 2.5vw;
+  font-size: 3em;
+  text-decoration: none;
 }
 
 .beer-details h1 {
+  font-family: Thunder;
   font-size: 3em;
   font-weight: 400;
   letter-spacing: 1px;
@@ -33,15 +35,16 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  margin: 2.5vw;
   padding: 0.5em;
 
   p {
-    font-size: 1em;
+    font-family: Thunder;
+    font-size: 1.5em;
     font-weight: 300;
     letter-spacing: 1px;
     text-align: start;
-    margin: 0.5em;
+    margin: 0.3em;
+    color: white;
 
     strong {
       font-weight: 700;
