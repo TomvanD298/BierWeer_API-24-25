@@ -1,9 +1,10 @@
 # API @cmda-minor-web 2024 - 2025
 
+```
 {% for text in Readme %} <br>
   {{ text.Tom }} <br>
 {% endfor %}
-
+```
 
 ## Idee
 Een app die bier aanbeveelt op basis je locatie en het weer.<br>
@@ -25,7 +26,23 @@ Het weer wordt opgehaald dmv de OpenWeather API. Ik heb Hardcoded eringezet dat 
 De biertjes worden opgehaald uit de JSON file(omdat het niet was gelukt om een goede gratis API te vinden). Deze hebben een aantal eigenschappen, zoals omschrijving, plaatje, brouwerij, bierstijl etc..<br>
 De biertjes op de homepage worden weergegeven op basis van het weer. Met de logica dat de temperatuur invloefd heeft op de bierstijl. Dus als het warm is wordt er een wit biertje aanbevolen
 en als koud is en regend een stout.<br>
-<img width="400" alt="Scherm­afbeelding 2025-04-23 om 09 49 55" src="https://github.com/user-attachments/assets/c3e6e270-c04c-44ad-b229-911d37ac4277" /><br>
+
+```
+// Tip van Chris om dit zo in mn readme te doen ;)
+  if (temp >= 16) {
+    preferredStyles = ['Witbier', 'Weizen', 'Blond', 'IPA', 'Fruited'];
+  } else if (temp >= 10 && temp < 16) {
+    preferredStyles = ['Pale Ale', 'Tripel', 'Saison'];
+  } else {
+    preferredStyles = ['Dubbel', 'Quadrupel', 'Stout'];
+  }
+  
+  // Extra voorkeur bij koud & regenachtig weer
+  if (temp < 5 && condition.includes('rain')) {
+    preferredStyles.push('Dubbel', 'Tripel', 'Quadrupel', 'Stout');
+  }
+```
+
 Het enige nadeel is dat, als het bijvoorbeeld lekker weer is maar -5 graden, hij toch altijd een tripel of ander donker biertje aanbeveelt.
 In een volgende iteratie zou deze logica nog verder verfijnd kunnen worden.
 <br><br>
