@@ -27,7 +27,7 @@ De biertjes worden opgehaald uit de JSON file(omdat het niet was gelukt om een g
 De biertjes op de homepage worden weergegeven op basis van het weer. Met de logica dat de temperatuur invloefd heeft op de bierstijl. Dus als het warm is wordt er een wit biertje aanbevolen
 en als koud is en regend een stout.<br>
 
-```
+```js
 // Tip van Chris om dit zo in mn readme te doen ;)
   if (temp >= 16) {
     preferredStyles = ['Witbier', 'Weizen', 'Blond', 'IPA', 'Fruited'];
